@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Fórmula 1 Temporada 2026 - Calendário, Pilotos, Equipes e Carros. A nova era do automobilismo.">
+    <title>Fórmula 1 - Temporada 2026</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;600;700;900&display=swap" rel="stylesheet">
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="container navbar-content">
+            <a href="#" class="logo">
+                <span class="logo-f1">F1</span>
+                <span class="logo-year">2026</span>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="#races" class="nav-link">Corridas</a>
+                <a href="#drivers" class="nav-link">Pilotos</a>
+                <a href="#teams" class="nav-link">Equipes</a>
+                <a href="#cars" class="nav-link">Carros</a>
+                <a href="#calendar" class="nav-link">Calendário</a>
+            </div>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Menu">
+                <span class="hamburger"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="hero-f1.jpg" alt="F1 Car" class="hero-image">
+            <div class="hero-overlay"></div>
+            <div class="hero-overlay-side"></div>
+        </div>
+        <div class="grid-pattern"></div>
+        <div class="container hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                <span class="badge-text">Nova Era</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-white">Fórmula 1</span>
+                <br>
+                <span class="title-red">Temporada 2026</span>
+            </h1>
+            <p class="hero-subtitle">
+                Novas regras, novos desafios, mesma emoção. 
+                A temporada mais revolucionária da história da F1 está chegando.
+            </p>
+            <a href="#races" class="btn-primary">
+                Ver Próximas Corridas
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 9l6 6 6-6"/>
+                </svg>
+            </a>
+        </div>
+        <div class="scroll-indicator">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M6 9l6 6 6-6"/>
+            </svg>
+        </div>
+        <div class="hero-accent"></div>
+    </section>
+
+    <!-- Races Section -->
+    <section class="section" id="races">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-line"></div>
+                <h2 class="section-title">Próximas Corridas</h2>
+            </div>
+            <p class="section-subtitle">
+                O calendário oficial da temporada 2026 da Fórmula 1 com 24 corridas em 5 continentes.
+            </p>
+            <div class="races-grid" id="racesGrid"></div>
+            <div class="section-cta">
+                <a href="#calendar" class="btn-outline">Ver Calendário Completo</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Drivers Section -->
+    <section class="section section-alt" id="drivers">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-line"></div>
+                <h2 class="section-title">Pilotos 2026</h2>
+            </div>
+            <p class="section-subtitle">
+                Os 22 pilotos que vão competir na temporada 2026 da Fórmula 1. 
+                Uma mistura de lendas consagradas e novos talentos.
+            </p>
+            <div class="drivers-grid" id="driversGrid"></div>
+        </div>
+    </section>
+
+    <!-- Teams Section -->
+    <section class="section" id="teams">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-line"></div>
+                <h2 class="section-title">Equipes 2026</h2>
+            </div>
+            <p class="section-subtitle">
+                As 11 equipes que compõem o grid da Fórmula 1 em 2026, 
+                incluindo a nova entrada da Cadillac no campeonato.
+            </p>
+            <div class="teams-grid" id="teamsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Cars Section -->
+    <section class="section section-alt" id="cars">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-line"></div>
+                <h2 class="section-title">Carros 2026</h2>
+            </div>
+            <p class="section-subtitle">
+                A nova era aerodinâmica da Fórmula 1 com regulamentos revolucionários.
+                Carros mais leves, mais eficientes e ainda mais rápidos.
+            </p>
+            <div class="cars-grid" id="carsGrid"></div>
+        </div>
+    </section>
+
+    <!-- Calendar Section -->
+    <section class="section" id="calendar">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-line"></div>
+                <h2 class="section-title">Calendário Completo</h2>
+            </div>
+            <p class="section-subtitle">
+                Todas as 24 corridas da temporada 2026 da Fórmula 1.
+            </p>
+            <div class="calendar-timeline" id="calendarTimeline"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <h3 class="footer-logo">F1 <span>2026</span></h3>
+                    <p class="footer-desc">
+                        Acompanhe toda a emoção da temporada 2026 da Fórmula 1. 
+                        A nova era do automobilismo começa aqui.
+                    </p>
+                </div>
+                <div class="footer-links">
+                    <h4>Links Rápidos</h4>
+                    <nav>
+                        <a href="#races">Corridas</a>
+                        <a href="#drivers">Pilotos</a>
+                        <a href="#teams">Equipes</a>
+                        <a href="#cars">Carros</a>
+                        <a href="#calendar">Calendário</a>
+                    </nav>
+                </div>
+                <div class="footer-social">
+                    <h4>Redes Sociais</h4>
+                    <div class="social-links">
+                        <a href="https://www.instagram.com/itezedev/" aria-label="Instagram" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                            </svg>
+                        </a>
+                        <a href="https://www.formula1.com" aria-label="F1" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <text x="12" y="15" font-size="12" text-anchor="middle" fill="currentColor">F1</text>
+                            </svg>
+                        </a>
+                        <a href="https://github.com/iTeze7" aria-label="GitHub" class="social-link">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>F1 2026. Projeto desenvolvido para fins educacionais.</p>
+            <a href="https://iteze.vercel.app" target="_blank" class="dev-credit">
+               © 2026 Desenvolvido por <strong>iTezeDev </strong> <i class="fa-solid fa-laptop"></i>
+            </a>
+                <p>Este site não é oficial da Formula One Group.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

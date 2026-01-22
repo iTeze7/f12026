@@ -1,0 +1,1445 @@
+/* =====================================================
+   F1 2026 Landing Page - Style Sheet
+   ===================================================== */
+
+/* CSS Variables - Design System */
+:root {
+    /* Colors */
+    --f1-red: #E10600;
+    --f1-red-dark: #B30500;
+    --f1-red-glow: #FF1E00;
+    --f1-black: #0A0A0A;
+    --f1-dark: #141414;
+    --f1-gray: #262626;
+    --f1-light-gray: #B3B3B3;
+    --f1-white: #FAFAFA;
+    
+    /* Semantic Colors */
+    --bg-primary: var(--f1-black);
+    --bg-secondary: var(--f1-dark);
+    --bg-card: var(--f1-dark);
+    --text-primary: var(--f1-white);
+    --text-secondary: var(--f1-light-gray);
+    --accent: var(--f1-red);
+    --border-color: #2A2A2A;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(180deg, transparent 0%, rgba(10, 10, 10, 0.8) 100%);
+    --gradient-card: linear-gradient(135deg, #1A1A1A 0%, #0F0F0F 100%);
+    --gradient-red: linear-gradient(135deg, #E10600 0%, #B30500 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.4);
+    --shadow-glow: 0 0 30px rgba(225, 6, 0, 0.3);
+    --shadow-hover: 0 8px 40px rgba(0, 0, 0, 0.6);
+    
+    /* Spacing */
+    --container-max: 1400px;
+    --section-padding: clamp(4rem, 8vw, 8rem);
+    
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-normal: 0.3s ease;
+    --transition-slow: 0.5s ease;
+}
+
+/* Reset & Base */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Titillium Web', system-ui, -apple-system, sans-serif;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--f1-gray);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--accent);
+}
+
+/* Container */
+.container {
+    width: 100%;
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+    .container {
+        padding: 0 1.5rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 2rem;
+    }
+}
+
+/* =====================================================
+   Typography
+   ===================================================== */
+
+.heading-xl {
+    font-size: clamp(3rem, 8vw, 6rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 1;
+}
+
+.heading-lg {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+}
+
+.heading-md {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.heading-sm {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* =====================================================
+   Buttons
+   ===================================================== */
+
+.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--gradient-red);
+    color: white;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-primary::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.1) 50%, transparent 100%);
+    transition: left var(--transition-slow);
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-glow);
+}
+
+.btn-primary:hover::after {
+    left: 100%;
+}
+
+.btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: transparent;
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border: 2px solid var(--accent);
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all var(--transition-normal);
+}
+
+.btn-outline:hover {
+    background: var(--accent);
+    color: white;
+    transform: scale(1.05);
+}
+
+/* =====================================================
+   Navbar
+   ===================================================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: transparent;
+    transition: background var(--transition-normal), border var(--transition-normal);
+}
+
+.navbar.scrolled {
+    background: rgba(10, 10, 10, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 4rem;
+}
+
+@media (min-width: 768px) {
+    .navbar-content {
+        height: 5rem;
+    }
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-size: 1.25rem;
+}
+
+.logo-f1 {
+    color: var(--accent);
+}
+
+.logo-year {
+    color: var(--text-primary);
+}
+
+.nav-links {
+    display: none;
+    align-items: center;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .nav-links {
+        display: flex;
+    }
+}
+
+.nav-link {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--accent);
+}
+
+.mobile-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@media (min-width: 768px) {
+    .mobile-menu-btn {
+        display: none;
+    }
+}
+
+.hamburger {
+    width: 1.5rem;
+    height: 2px;
+    background: var(--text-primary);
+    position: relative;
+    transition: background var(--transition-fast);
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--text-primary);
+    transition: transform var(--transition-fast);
+}
+
+.hamburger::before {
+    top: -6px;
+}
+
+.hamburger::after {
+    bottom: -6px;
+}
+
+.mobile-menu-btn.active .hamburger {
+    background: transparent;
+}
+
+.mobile-menu-btn.active .hamburger::before {
+    transform: rotate(45deg) translate(4px, 4px);
+}
+
+.mobile-menu-btn.active .hamburger::after {
+    transform: rotate(-45deg) translate(4px, -4px);
+}
+
+/* Mobile Menu */
+.nav-links.mobile-open {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-secondary);
+    padding: 1rem;
+    gap: 1rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* =====================================================
+   Hero Section
+   ===================================================== */
+
+.hero {
+    position: relative;
+    height: 100vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(10,10,10,0.4) 0%, rgba(10,10,10,0.6) 50%, var(--bg-primary) 100%);
+}
+
+.hero-overlay-side {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg, rgba(10,10,10,0.8) 0%, transparent 50%);
+}
+
+.grid-pattern {
+    position: absolute;
+    inset: 0;
+    background-image: 
+        linear-gradient(to right, rgba(38, 38, 38, 0.3) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(38, 38, 38, 0.3) 1px, transparent 1px);
+    background-size: 40px 40px;
+    opacity: 0.3;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    max-width: 800px;
+}
+
+.hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(225, 6, 0, 0.1);
+    border: 1px solid rgba(225, 6, 0, 0.5);
+    border-radius: 2px;
+    backdrop-filter: blur(4px);
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease forwards;
+}
+
+.badge-dot {
+    width: 0.5rem;
+    height: 0.5rem;
+    background: var(--accent);
+    border-radius: 50%;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.badge-text {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+}
+
+.hero-title {
+    font-size: clamp(3rem, 10vw, 7rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+    opacity: 0;
+}
+
+.title-white {
+    color: var(--text-primary);
+}
+
+.title-red {
+    color: var(--accent);
+    text-shadow: 0 0 40px rgba(225, 6, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s ease 0.2s forwards;
+    opacity: 0;
+}
+
+.hero .btn-primary {
+    animation: fadeUp 0.6s ease 0.3s forwards;
+    opacity: 0;
+}
+
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--text-secondary);
+    animation: bounce 2s infinite;
+}
+
+.hero-accent {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 8rem;
+    background: var(--accent);
+    box-shadow: var(--shadow-glow);
+}
+
+/* =====================================================
+   Sections
+   ===================================================== */
+
+.section {
+    padding: var(--section-padding) 0;
+}
+
+.section-alt {
+    background: rgba(20, 20, 20, 0.5);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.section-line {
+    width: 4rem;
+    height: 4px;
+    background: var(--accent);
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.section-subtitle {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin-bottom: 3rem;
+}
+
+.section-cta {
+    text-align: center;
+    margin-top: 3rem;
+}
+
+/* =====================================================
+   Cards Base
+   ===================================================== */
+
+.card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: all var(--transition-normal);
+    box-shadow: var(--shadow-card);
+}
+
+.card:hover {
+    border-color: var(--accent);
+    box-shadow: var(--shadow-hover);
+}
+
+/* =====================================================
+   Race Cards
+   ===================================================== */
+
+.races-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.race-card {
+    position: relative;
+    height: 18rem;
+    cursor: pointer;
+}
+
+.race-card-default,
+.race-card-hover {
+    position: absolute;
+    inset: 0;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: all var(--transition-slow);
+}
+
+.race-card-default {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.race-card:hover .race-card-default {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.race-card-hover {
+    opacity: 0;
+    transform: scale(1.1);
+    background: rgba(10, 10, 10, 0.95);
+    align-items: center;
+    justify-content: center;
+}
+
+.race-card:hover .race-card-hover {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.race-flag {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.race-round {
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+}
+
+.race-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.race-circuit {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+.race-info {
+    flex: 1;
+}
+
+.race-date-time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+    margin-top: auto;
+}
+
+.race-date {
+    font-weight: 600;
+}
+
+.race-time {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+}
+
+/* Circuit Image */
+.race-circuit-img {
+    width: 100%;
+    max-width: 200px;
+    height: 160px;
+    margin: 1rem 0;
+    object-fit: contain;
+}
+
+.race-circuit-svg circle {
+    fill: var(--accent);
+}
+
+.race-hover-flag {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    font-size: 2rem;
+}
+
+.race-hover-name {
+    font-size: 1rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 0.5rem;
+}
+
+.race-hover-location {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.race-card-glow {
+    position: absolute;
+    inset: 0;
+    border-radius: 8px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    box-shadow: inset 0 0 30px rgba(225, 6, 0, 0.2);
+}
+
+.race-card:hover .race-card-glow {
+    opacity: 1;
+}
+
+/* =====================================================
+   Driver Cards
+   ===================================================== */
+
+.drivers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+@media (min-width: 640px) {
+    .drivers-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    }
+}
+
+.driver-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.driver-team-bar {
+    height: 4px;
+    width: 100%;
+}
+
+.driver-image-container {
+    position: relative;
+    height: 12rem;
+    overflow: hidden;
+    background: linear-gradient(180deg, var(--f1-gray) 0%, var(--bg-primary) 100%);
+}
+
+.driver-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+    transition: transform var(--transition-slow);
+}
+
+.driver-card:hover .driver-image {
+    transform: scale(1.1);
+}
+
+.driver-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, var(--bg-card) 100%);
+}
+
+.driver-number {
+    position: absolute;
+    bottom: 0.5rem;
+    right: 0.5rem;
+    font-size: 3rem;
+    font-weight: 900;
+    opacity: 0.3;
+}
+
+.driver-champion-glow {
+    position: absolute;
+    inset: 0;
+    opacity: 0.2;
+    background: radial-gradient(circle at top, var(--glow-color, transparent) 0%, transparent 70%);
+}
+
+.driver-crown {
+    position: absolute;
+    top: -0.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    filter: drop-shadow(0 0 10px rgba(255, 193, 7, 0.6));
+    z-index: 20;
+}
+
+.driver-info {
+    padding: 1rem;
+}
+
+.driver-name-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.driver-flag {
+    font-size: 1.5rem;
+}
+
+.driver-first-name {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+}
+
+.driver-last-name {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 1.2;
+}
+
+.driver-team {
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.driver-titles {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    flex-wrap: wrap;
+}
+
+.driver-star {
+    color: #FFC107;
+    filter: drop-shadow(0 0 4px rgba(255, 193, 7, 0.8));
+}
+
+.driver-titles-text {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    margin-left: 0.5rem;
+}
+
+.driver-card-hover {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity var(--transition-normal);
+    pointer-events: none;
+}
+
+.driver-card:hover .driver-card-hover {
+    opacity: 1;
+}
+
+/* =====================================================
+   Team Cards
+   ===================================================== */
+
+.teams-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.team-card {
+    position: relative;
+    padding: 1.5rem;
+}
+
+.team-color-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    transition: height var(--transition-normal);
+}
+
+.team-card:hover .team-color-bar {
+    height: 8px;
+}
+
+.team-logo-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 5rem;
+    margin-bottom: 1rem;
+}
+
+.team-logo {
+    max-height: 4rem;
+    max-width: 100%;
+    object-fit: contain;
+    filter: brightness(0) invert(1);
+    opacity: 0.9;
+    transition: all var(--transition-normal);
+}
+
+.team-card:hover .team-logo {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+.colored-logo {
+    filter: none;
+}
+
+.white-logo {
+    filter: brightness(0) invert(1);
+}
+
+.image-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: rgb(255, 255, 255);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 16px;
+    z-index: 10;
+}
+
+.image-prev {
+    left: 10px;
+}
+
+.image-next {
+    right: 10px;
+}
+
+.team-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0.25rem;
+}
+
+.team-full-name {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.team-drivers {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.team-driver {
+    font-size: 0.875rem;
+    margin: 0.25rem 0;
+}
+
+.team-championships {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.team-trophy {
+    color: #FFC107;
+}
+
+.team-championships-text {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+.team-card-gradient {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+    pointer-events: none;
+}
+
+.team-card:hover .team-card-gradient {
+    opacity: 1;
+}
+
+.team-card-corner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 4rem;
+    height: 4rem;
+    opacity: 0.1;
+    transition: opacity var(--transition-normal);
+}
+
+.team-card:hover .team-card-corner {
+    opacity: 0.2;
+}
+
+/* =====================================================
+   Cars Gallery
+   ===================================================== */
+
+.cars-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.car-card {
+    overflow: hidden;
+}
+
+.car-color-bar {
+    height: 4px;
+    width: 100%;
+}
+
+.car-image-container {
+    position: relative;
+    height: 12rem;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--f1-gray) 0%, var(--bg-primary) 100%);
+}
+
+.car-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    transition: transform 0.7s ease;
+}
+
+.car-card:hover .car-image {
+    transform: scale(1.1);
+}
+
+.car-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, var(--bg-card) 100%);
+    opacity: 0.6;
+}
+
+.car-speed-lines {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity var(--transition-slow);
+}
+
+.car-card:hover .car-speed-lines {
+    opacity: 0.3;
+}
+
+.speed-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, white 50%, transparent 100%);
+}
+
+.speed-line:nth-child(1) { top: 25%; }
+.speed-line:nth-child(2) { top: 50%; }
+.speed-line:nth-child(3) { top: 75%; }
+
+.car-info {
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.car-team-name {
+    font-size: 1.125rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.car-model {
+    font-size: 1.125rem;
+    font-weight: 700;
+}
+
+.car-logo {
+    width: 6rem;
+    height: 6rem;
+    object-fit: contain;
+    opacity: 0.9;
+}
+
+.white-logo {
+    filter: brightness(0) invert(1);
+}
+
+/* =====================================================
+   Calendar Timeline
+   ===================================================== */
+
+.calendar-timeline {
+    position: relative;
+    padding-left: 2rem;
+}
+
+@media (min-width: 768px) {
+    .calendar-timeline {
+        padding-left: 0;
+    }
+}
+
+.timeline-line {
+    position: absolute;
+    left: 1rem;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border-color);
+}
+
+@media (min-width: 768px) {
+    .timeline-line {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.calendar-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .calendar-item {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+    }
+    
+    .calendar-item:nth-child(even) {
+        flex-direction: row-reverse;
+    }
+}
+
+.timeline-dot {
+    position: absolute;
+    left: 1rem;
+    top: 1.5rem;
+    width: 12px;
+    height: 12px;
+    background: var(--accent);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    box-shadow: 0 0 0 4px var(--bg-primary);
+}
+
+@media (min-width: 768px) {
+    .timeline-dot {
+        left: 50%;
+    }
+}
+
+.calendar-spacer {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .calendar-spacer {
+        display: block;
+        width: 50%;
+    }
+}
+
+.calendar-card {
+    margin-left: 1.5rem;
+    padding: 1rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .calendar-card {
+        margin-left: 0;
+        width: 50%;
+    }
+    
+    .calendar-item:nth-child(odd) .calendar-card {
+        padding-right: 3rem;
+    }
+    
+    .calendar-item:nth-child(even) .calendar-card {
+        padding-left: 3rem;
+    }
+}
+
+.calendar-card-content {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.calendar-flag {
+    font-size: 2.5rem;
+    flex-shrink: 0;
+}
+
+.calendar-race-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.calendar-round {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--accent);
+}
+
+.calendar-race-name {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-top: 0.25rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.calendar-circuit {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+}
+
+.calendar-circuit svg {
+    flex-shrink: 0;
+    width: 12px;
+    height: 12px;
+}
+
+.calendar-date-time {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.calendar-date {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.calendar-date svg {
+    color: var(--accent);
+    width: 12px;
+    height: 12px;
+}
+
+.calendar-time {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+}
+
+.calendar-time svg {
+    width: 12px;
+    height: 12px;
+}
+
+/* =====================================================
+   Footer
+   ===================================================== */
+
+.footer {
+    background: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    padding: 4rem 0;
+}
+
+@media (min-width: 768px) {
+    .footer-content {
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+}
+
+.footer-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.footer-logo span {
+    color: var(--accent);
+}
+
+.footer-desc {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    max-width: 300px;
+}
+
+.footer-links h4,
+.footer-social h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.footer-links nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-links a {
+    color: var(--text-secondary);
+    transition: color var(--transition-fast);
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-link {
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--f1-gray);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.social-link:hover {
+    background: var(--accent);
+    color: white;
+}
+
+.footer-bottom {
+    border-top: 1px solid var(--border-color);
+    padding: 1.5rem 0;
+}
+
+.footer-bottom .container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: center;
+}
+
+@media (min-width: 768px) {
+    .footer-bottom .container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
+
+.footer-bottom p {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+}
+
+/* =====================================================
+   Animations
+   ===================================================== */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(225, 6, 0, 0.4);
+    }
+    50% {
+        box-shadow: 0 0 0 10px rgba(225, 6, 0, 0);
+    }
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    50% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+/* Animation Classes */
+.animate-fade-up {
+    animation: fadeUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+/* Stagger animations */
+.stagger-1 { animation-delay: 0.05s; }
+.stagger-2 { animation-delay: 0.1s; }
+.stagger-3 { animation-delay: 0.15s; }
+.stagger-4 { animation-delay: 0.2s; }
+.stagger-5 { animation-delay: 0.25s; }
+.stagger-6 { animation-delay: 0.3s; }
+
+/* =====================================================
+   Utility Classes
+   ===================================================== */
+
+.text-accent { color: var(--accent); }
+.text-muted { color: var(--text-secondary); }
+.bg-accent { background-color: var(--accent); }
+
+.dev-credit {
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+}
+.dev-credit:hover {
+  text-decoration: underline;
+}
