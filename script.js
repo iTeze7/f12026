@@ -70,11 +70,11 @@ const teams2026 = [
 
 const cars2026 = [
     { id: 1, team: "McLaren", model: "MCL40", color: "#FF8000", images: ["carro/M.png"] },
-    { id: 2, team: "Ferrari", model: "SF-26", color: "#E80020", images: ["carro/F.png"] },
+    { id: 2, team: "Ferrari", model: "SF-26", color: "#E80020", images: ["carro/ferrari.png", "carro/ferrari1.png", "carro/ferrari2.png", "carro/ferrari3.png"] },
     { id: 3, team: "Red Bull Racing", model: "RB22", color: "#3671C6", images: ["carro/redbull5.png", "carro/redbull2.png", "carro/redbull3.png", "carro/redbull.png"] },
     { id: 4, team: "Mercedes", model: "W17", color: "#27F4D2", images: ["carro/mercedes3.png", "carro/mercedes.png", "carro/mercedes4.png"] },
     { id: 5, team: "Aston Martin", model: "AMR26", color: "#229971", images: ["carro/A.png"] },
-    { id: 6, team: "Alpine", model: "A526", color: "#FF87BC", images: ["carro/alpine.png"] },
+    { id: 6, team: "Alpine", model: "A526", color: "#FF87BC", images: ["carro/alpine.png", "carro/alpine2.png", "carro/alpine3.png"] },
     { id: 7, team: "Audi", model: "R26", color: "#6b0e0e", images: ["carro/audi.png", "carro/audi2.png", "carro/audi4.png"] },
     { id: 8, team: "Racing Bulls", model: "VCARB 03", color: "#6692FF", images: ["carro/rb5.png", "carro/rb2.png", "carro/rb3.png", "carro/rb4.png",] },
     { id: 9, team: "Williams", model: "FW47", color: "#1868DB", images: ["carro/W.png"] },
